@@ -1,0 +1,32 @@
+﻿David McNeil 1876
+
+Speech Recognition Using Linear Prediction Coding and Support Vector Machines
+Folders
+“audio_samples”- contains all audio samples used to train classifier in .wav format
+“libs”- contains the library files of training feature vectors and the range arguments used for normalizing the data
+“svms” - contains trained support vector machines to be used for real time prediction
+“presentation” - contains the files for my in class presentation
+
+Note: the libs and SVMs folder currently only contain the library, range, and SVM for the “remote control vehicle commands” example other libs can be generated using “get_data” and other SVMs can be trained using “train”
+
+Documentation
+“abstract.*” - contains original abstract of concept
+“explanation.*” - explanation of files
+“summary.*” - summary of results
+
+Source Code
+External Libarary Files:  http://www.csie.ntu.edu.tw/~cjlin/libsvm/
+“libsvmread.mexa64” - LIBSVM file capable of reading data from a library
+“libsvmwrite.mexa64” - LIBSVM file capable of writing data to a library
+“svmpredict.mexa64” - LIBSVM file used for generating predictions based on trained SVM
+“svmtrain.mexa64” - LIBSVM file used to train a SVM classifier
+Original Code
+“random_string.m” - Matlab function to generate a random string, used to generate unique file names for recorded audio samples
+“record.m” - Matlab program used to record samples of audio to be used as training data
+“get_lpc.m” - Matlab function to generate LPC coefficients for a sample of audio, the number of coefficients per frame, frame size, and frame overlap can be set in this file
+“get_data.m” - Matlab program to create feature vectors from audio samples to be saved as LIBSVM library
+“libsvmscaledwrite.m” - Matlab function to write out a scaled LIBSVM library, scales data between 0 and 1 and produces a “.rng” file
+“libsvmapplyscale.m” - Matlab function to apply the range data (.rng file) from one library onto an unscaled set of data
+“train.m” - Matlab program to train a new SVM classifier given a LIBSVM database, writes this classifier out to ths “svms” folder
+“rtp.m” - Matlab program which applies an SVM classifier to audio samples in real time
+“math.m” - Matlab program specifically geared toward use with an SVM that has been trained on recognizing numbers and mathematical operations
